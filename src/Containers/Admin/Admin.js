@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TableList from "../../Components/TableList/TableList";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
+import { getProjectsData } from "../../Components/utils";
 import {
   DialogTitle,
   Button,
@@ -20,6 +21,9 @@ class Admin extends Component {
     currentData: {},
   };
   componentDidMount() {
+    this.fetchData();
+  }
+  fetchData() {
     axios
       .get("http://steg-bube.staging-sys.de/api/m1/de/project/project", {
         headers: {
@@ -67,9 +71,8 @@ class Admin extends Component {
       )
       .then((response) => {
         alert("Deleted");
-
         this.handleClose();
-        this.setState({});
+        this.fetchData();
       });
   };
   handleEdit = (rowData) => {
@@ -103,12 +106,16 @@ class Admin extends Component {
     ];
 
     return (
-      <div>
-        {" "}
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(70deg,#b5c4d4, #66d0c8,#4becc1,#228251)",
+        }}
+      >
         {this.state.data.length > 0 ? (
           <TableList columns={columns} data={this.state.data} />
         ) : (
-          "loding"
+          <div style={{ margin: "auto" }}> "loding ..."</div>
         )}
         <Dialog
           open={this.state.open}

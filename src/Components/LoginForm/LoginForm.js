@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     width: "20%",
     borderRadius: "25px",
-    backgroundColor: "rgba(255, 255, 255, 0.5)",
     height: "40%",
   },
   myButton: {
@@ -26,16 +25,17 @@ const LoginForm = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log(props);
-    axios({
-      method: "post",
-      url: "http://steg-bube.staging-sys.de/api/auth/m1/de/login",
-      data: {
+    axios
+      .post("http://steg-bube.staging-sys.de/api/auth/m1/de/login", {
         username: state.email,
         password: state.password,
-      },
-    })
+      })
+
       .then((res) => {
         window.localStorage.setItem("TOKEN", res.data.loginToken.token);
+        axios.defaults.headers.common = {
+          Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+        };
         props.history.push("/admin");
       })
       .catch((err) => {
