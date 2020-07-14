@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from "./Containers/Login/Login";
 import Admin from "./Containers/Admin/Admin";
-import Location from "./Containers/Location/Location";
+import Project from "./Containers/Project/Project";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
 import AppBar from "./Containers/Header/Header";
@@ -17,7 +17,7 @@ function App() {
 
           <PublicRoute restricted={true} component={Login} path="/" exact />
 
-          <PrivateRoute component={Location} path="/Location/:id" exact />
+          <PrivateRoute component={Project} path="/Project/:id" exact />
         </Switch>
       </Router>
     </div>

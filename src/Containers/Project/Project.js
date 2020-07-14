@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     width: "300px",
   },
 });
-const Location = (props) => {
+const Project = (props) => {
   const [data, setData] = useState({});
   const classes = useStyles();
   useEffect(() => {
@@ -21,7 +21,7 @@ const Location = (props) => {
   const getProject = () => {
     axios
       .get(
-        `http://steg-bube.staging-sys.de/api/m1/de/project/project/${props.match.params.id}`, 
+        `http://steg-bube.staging-sys.de/api/m1/de/project/project/${props.match.params.id}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("TOKEN"),
@@ -46,4 +46,4 @@ const Location = (props) => {
   );
 };
 
-export default Location;
+export default Project;

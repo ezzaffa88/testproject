@@ -75,11 +75,11 @@ class Admin extends Component {
       });
   };
   handleEdit = (rowData) => {
-    this.props.history.push(`/location/${rowData.id}`);
+    this.props.history.push(`/Project/${rowData.id}`);
   };
 
   render() {
-    console.log(this.state.data);
+    //console.log(this.state.data);
     const columns = [
       { title: "Short Description", field: "shortDesc" },
       {

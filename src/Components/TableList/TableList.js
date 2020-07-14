@@ -16,7 +16,7 @@ const TableList = (props) => {
   return (
     <Container className={classes.root}>
       <MaterialTable
-        title="Location Manager"
+        title="Projects Manager"
         columns={props.columns}
         data={props.data}
       />
