@@ -21,7 +21,7 @@ const Location = (props) => {
   const getProject = () => {
     axios
       .get(
-        `http://steg-bube.staging-sys.de/api/m1/de/project/project/${props.match.params.id}`,
+        `http://steg-bube.staging-sys.de/api/m1/de/project/project/${props.match.params.id}`, 
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("TOKEN"),

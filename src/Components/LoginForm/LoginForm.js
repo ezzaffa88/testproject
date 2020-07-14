@@ -24,7 +24,7 @@ const LoginForm = (props) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(props);
+    //console.log(props);
     axios
       .post("http://steg-bube.staging-sys.de/api/auth/m1/de/login", {
         username: state.email,

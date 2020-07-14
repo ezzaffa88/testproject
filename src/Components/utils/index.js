@@ -1,4 +1,3 @@
-import axios from "axios";
 export const login = (tokenKey) => {
   localStorage.setItem("TOKEN", tokenKey);
 };

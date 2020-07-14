@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TableList from "../../Components/TableList/TableList";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import { getProjectsData } from "../../Components/utils";
 import {
   DialogTitle,
   Button,
